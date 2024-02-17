@@ -13,6 +13,7 @@ const Lobby = () => {
 
 
   const handleSubmitForm = (e) => {
+    // console.log("from submit");
     e.preventDefault();
     socket.emit('room:join', {email, room});
   };
