@@ -18,6 +18,12 @@ const Lobby = () => {
     socket.emit('room:join', {email, room});
   };
 
+  const handleSubmitFormToZego = (e) => {
+    e.preventDefault();
+
+    navigate(`/zegomeet/${room}`);
+  }
+
   const handleJoinRoom = (data) => {
     const { email, room } = data;
     // console.log(email, room);
@@ -36,7 +42,7 @@ const Lobby = () => {
   return (
     <div>
       <h1>Lobby</h1>
-      <form onSubmit={handleSubmitForm}>
+      <form onSubmit={handleSubmitFormToZego}>
         <label htmlFor="email">Email ID</label>
         <input type="email" id='email' value={email} onChange={({target}) => setEmail(target.value)} />
         <br />
