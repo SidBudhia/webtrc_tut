@@ -31,7 +31,7 @@ const Lobby = () => {
     return () => {
       socket.off('room:join', handleJoinRoom)
     }
-  }, [socket]);
+  }, [socket, handleJoinRoom]);
 
   return (
     <div>
