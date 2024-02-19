@@ -5,8 +5,8 @@ class PeerService {
           iceServers: [
             {
               urls: [
-                "stun:stun.l.google.com:19302",
-                "stun:global.stun.twilio.com:3478",
+                "stun:stun1.1.google.com:19302",
+                "stun:stun2.1.google.com:19302",
               ],
             },
           ],

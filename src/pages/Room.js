@@ -39,7 +39,7 @@ const Room = () => {
 
   const sendStreams = () => {
     for (const track of myStream.getTracks()) {
-      peer.peer.addTrack(track, myStream);
+      peer.addTrack(track, myStream);
     }
   };
 
@@ -65,14 +65,14 @@ const Room = () => {
   };
 
   useEffect(() => {
-    peer.peer.addEventListener("negotiationneeded", handleNegoNeeded);
+    peer.addEventListener("negotiationneeded", handleNegoNeeded);
     return () => {
-      peer.peer.removeEventListener("negotiationneeded", handleNegoNeeded);
+      peer.removeEventListener("negotiationneeded", handleNegoNeeded);
     };
   }, [handleNegoNeeded]);
 
   useEffect(() => {
-    peer.peer.addEventListener('track', async (ev) => {
+    peer.addEventListener('track', async (ev) => {
       const remoteStream = ev.streams;
       console.log(remoteStream);
       setRemoteStream(remoteStream[0]);
