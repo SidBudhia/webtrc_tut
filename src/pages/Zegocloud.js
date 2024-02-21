@@ -25,16 +25,14 @@ const Zegocloud = () => {
       sharedLinks: [
         {
           name: "Personal link",
-          url:
-            window.location.protocol +
-            "//" +
-            window.location.host +
-            window.location.pathname
+          url: `${window.location.protocol}//${window.location.host}${window.location.pathname}`,
         },
       ],
       scenario: {
         mode: ZegoUIKitPrebuilt.VideoConference,
       },
+      publishStream: true, // Explicitly publish local stream
+      autoPlay: true, // Automatically play remote streams
     });
   };
 
