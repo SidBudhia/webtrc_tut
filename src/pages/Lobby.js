@@ -42,7 +42,7 @@ const Lobby = () => {
   return (
     <div>
       <h1>Lobby</h1>
-      <form onSubmit={handleSubmitFormToZego}>
+      <form onSubmit={handleSubmitForm}>
         <label htmlFor="email">Email ID</label>
         <input type="email" id='email' value={email} onChange={({target}) => setEmail(target.value)} />
         <br />
