@@ -21,12 +21,12 @@ const Room = () => {
   }, [remoteSocketId, socket]);
 
   const handleUserJoined = useCallback(({ email, id }) => {
-    // console.log(`Email ${email} joined the room`);
+    console.log(`Email ${email} joined the room`);
     setRemoteSocketId(id);
   }, []);
 
   const handleIncomingCall = useCallback(async ({ from, offer }) => {
-    // console.log(from, offer);
+    console.log("incoming:call", from, "offer:", offer);
     setRemoteSocketId(from);
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: true,
@@ -45,7 +45,7 @@ const Room = () => {
 
   const handleCallAccepted = useCallback(async ({ from, ans }) => {
     peer.setLocalDescription(ans);
-    console.log("Call Accepted");
+    console.log("Call Accepted! ans:", ans);
 
     sendStreams();
   },[sendStreams]);
@@ -74,7 +74,7 @@ const Room = () => {
   useEffect(() => {
     peer.peer.addEventListener('track', async (ev) => {
       const remoteStream = ev.streams;
-      console.log(remoteStream);
+      console.log("remoteStream", remoteStream[0]);
       setRemoteStream(remoteStream[0]);
     });
   }, []);
